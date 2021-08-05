@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5498438035331284321}
   - component: {fileID: 5498438035331284322}
   - component: {fileID: 5498438035331284323}
-  - component: {fileID: 5498438035331284332}
+  - component: {fileID: 1752513289455078874}
   m_Layer: 13
   m_Name: GlobalTimerRespawn
   m_TagString: Untagged
@@ -90,6 +90,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,6 +102,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -174,7 +176,7 @@ MonoBehaviour:
   currentlyHeldBy: {fileID: 0}
   pickupable: 1
   proximity: 2
---- !u!114 &5498438035331284332
+--- !u!114 &1752513289455078874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +193,8 @@ MonoBehaviour:
   interactTextGO: {fileID: 0}
   proximity: 2
   SynchronizePosition: 1
-  AllowCollisionOwnershipTransfer: 1
+  AllowCollisionOwnershipTransfer: 0
+  Reliable: 0
   serializedProgramAsset: {fileID: 11400000, guid: 2346dad9aaa601b4687169bcd30d489c,
     type: 2}
   programSource: {fileID: 11400000, guid: 8847dca086ae8734faa5b9bd97cd65d6, type: 2}
@@ -212,7 +215,7 @@ GameObject:
   - component: {fileID: 5498438035438655377}
   - component: {fileID: 5498438035438655378}
   - component: {fileID: 5498438035438655379}
-  - component: {fileID: 5498438035438655388}
+  - component: {fileID: 4551194624502850294}
   m_Layer: 13
   m_Name: LocalTimerRespawn
   m_TagString: Untagged
@@ -256,6 +259,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -267,6 +271,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -340,7 +345,7 @@ MonoBehaviour:
   currentlyHeldBy: {fileID: 0}
   pickupable: 1
   proximity: 2
---- !u!114 &5498438035438655388
+--- !u!114 &4551194624502850294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,7 +362,8 @@ MonoBehaviour:
   interactTextGO: {fileID: 0}
   proximity: 2
   SynchronizePosition: 0
-  AllowCollisionOwnershipTransfer: 1
+  AllowCollisionOwnershipTransfer: 0
+  Reliable: 0
   serializedProgramAsset: {fileID: 11400000, guid: 2346dad9aaa601b4687169bcd30d489c,
     type: 2}
   programSource: {fileID: 11400000, guid: 8847dca086ae8734faa5b9bd97cd65d6, type: 2}

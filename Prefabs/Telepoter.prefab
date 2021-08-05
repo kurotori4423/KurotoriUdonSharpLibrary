@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8098334744646083439}
   - component: {fileID: 8839841407176911088}
   - component: {fileID: 5304698310347837254}
-  - component: {fileID: 7871753640305030469}
+  - component: {fileID: 4645921987636500509}
   m_Layer: 0
   m_Name: TelepoterInteract
   m_TagString: Untagged
@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -67,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -92,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7871753640305030469
+--- !u!114 &4645921987636500509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +111,8 @@ MonoBehaviour:
   interactTextGO: {fileID: 0}
   proximity: 2
   SynchronizePosition: 0
-  AllowCollisionOwnershipTransfer: 1
+  AllowCollisionOwnershipTransfer: 0
+  Reliable: 0
   serializedProgramAsset: {fileID: 11400000, guid: 1e17ab8e1099edf48a5469e6490d7f74,
     type: 2}
   programSource: {fileID: 11400000, guid: 0b7ddc15278ce3c43865e9b2cf49c6d5, type: 2}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7284287345889456651}
   - component: {fileID: 7284287345889456650}
   - component: {fileID: 7284287345889456649}
-  - component: {fileID: 7284287345889456648}
+  - component: {fileID: 4271458525014781617}
   m_Layer: 0
   m_Name: NoticePlayerJoin
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MonoBehaviour:
   VolumetricRadius: 0
   EnableSpatialization: 0
   UseAudioSourceVolumeCurve: 0
---- !u!114 &7284287345889456648
+--- !u!114 &4271458525014781617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   proximity: 2
   SynchronizePosition: 0
   AllowCollisionOwnershipTransfer: 0
+  Reliable: 0
   serializedProgramAsset: {fileID: 11400000, guid: b150683228734124e8f3a8928b8fbd88,
     type: 2}
   programSource: {fileID: 11400000, guid: 259647e9464366640af5b06f02f00652, type: 2}
