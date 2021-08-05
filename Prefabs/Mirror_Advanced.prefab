@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 9132104690628878510}
   - component: {fileID: 9192176705297612412}
   - component: {fileID: 5173568702434671960}
+  - component: {fileID: 6815784027071653351}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -627,6 +628,24 @@ MonoBehaviour:
   publicVariablesUnityEngineObjects:
   - {fileID: 9192176705297612412}
   publicVariablesSerializationDataFormat: 0
+--- !u!114 &6815784027071653351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129034477053720654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -617992517, guid: 661092b4961be7145bfbe56e1e62337b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gain: 10
+  Far: 40
+  Near: 0
+  VolumetricRadius: 0
+  EnableSpatialization: 1
+  UseAudioSourceVolumeCurve: 1
 --- !u!1 &9129105385386554126
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +930,7 @@ GameObject:
   - component: {fileID: 9131691166095638646}
   - component: {fileID: 9192182867779330344}
   - component: {fileID: 4039362902963198067}
+  - component: {fileID: 7116308600587499670}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -1054,6 +1074,24 @@ MonoBehaviour:
   publicVariablesUnityEngineObjects:
   - {fileID: 9192182867779330344}
   publicVariablesSerializationDataFormat: 0
+--- !u!114 &7116308600587499670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129746975924795396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -617992517, guid: 661092b4961be7145bfbe56e1e62337b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gain: 10
+  Far: 40
+  Near: 0
+  VolumetricRadius: 0
+  EnableSpatialization: 1
+  UseAudioSourceVolumeCurve: 1
 --- !u!1 &9129804988347238088
 GameObject:
   m_ObjectHideFlags: 0
