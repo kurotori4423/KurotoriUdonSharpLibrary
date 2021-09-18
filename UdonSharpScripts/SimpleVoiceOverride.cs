@@ -4,86 +4,88 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
-
-public class SimpleVoiceOverride : UdonSharpBehaviour
+namespace Kurotori
 {
-    [UdonSynced(UdonSyncMode.None)]
-    private float voiceDistanceFar = 25.0f;
-
-    [SerializeField]
-    private Slider farSlider;
-
-    [SerializeField]
-    private Text farDistanceText;
-
-    [SerializeField]
-    private int delayFrame = 60;
-
-    private int delayCounter = 0;
-
-    private bool firstSync = true;
-
-    void Start()
+    public class SimpleVoiceOverride : UdonSharpBehaviour
     {
-        if(farDistanceText != null)
-        {
-            farDistanceText.text = string.Format("{0:0.00}", farSlider.value);
-        }
-    }
+        [UdonSynced(UdonSyncMode.None)]
+        private float voiceDistanceFar = 25.0f;
 
-    private void Update()
-    {
-        if(firstSync && delayCounter < delayFrame)
-        {
-            delayCounter++;
-        }
-        else
-        {
-            ChangeDistanceSync();
-            firstSync = false;
-        }
-    }
+        [SerializeField]
+        private Slider farSlider;
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
-    {
-        player.SetVoiceDistanceFar(voiceDistanceFar);
+        [SerializeField]
+        private Text farDistanceText;
 
-        if(player.Equals(Networking.LocalPlayer))
+        [SerializeField]
+        private int delayFrame = 60;
+
+        private int delayCounter = 0;
+
+        private bool firstSync = true;
+
+        void Start()
         {
-            if(!Networking.LocalPlayer.IsOwner(gameObject))
+            if (farDistanceText != null)
             {
-                farSlider.interactable = false;
+                farDistanceText.text = string.Format("{0:0.00}", farSlider.value);
             }
         }
-    }
 
-    public void ChangeDistance()
-    {
-        voiceDistanceFar = farSlider.value;
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "ChangeDistanceSync");
-
-        ChangeDistanceSync();
-    }
-
-    public void ChangeDistanceSync()
-    {
-        if(!Networking.LocalPlayer.IsOwner(gameObject))
+        private void Update()
         {
-            farSlider.value = voiceDistanceFar;
+            if (firstSync && delayCounter < delayFrame)
+            {
+                delayCounter++;
+            }
+            else
+            {
+                ChangeDistanceSync();
+                firstSync = false;
+            }
         }
 
-        VRCPlayerApi[] players = new VRCPlayerApi[80];
-        VRCPlayerApi.GetPlayers(players);
-        foreach (var player in players)
+        public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            if (player == null) continue;
-
             player.SetVoiceDistanceFar(voiceDistanceFar);
+
+            if (player.Equals(Networking.LocalPlayer))
+            {
+                if (!Networking.LocalPlayer.IsOwner(gameObject))
+                {
+                    farSlider.interactable = false;
+                }
+            }
         }
 
-        if(farDistanceText != null)
+        public void ChangeDistance()
         {
-            farDistanceText.text = string.Format("{0:0.00}", voiceDistanceFar);
+            voiceDistanceFar = farSlider.value;
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "ChangeDistanceSync");
+
+            ChangeDistanceSync();
+        }
+
+        public void ChangeDistanceSync()
+        {
+            if (!Networking.LocalPlayer.IsOwner(gameObject))
+            {
+                farSlider.value = voiceDistanceFar;
+            }
+
+            VRCPlayerApi[] players = new VRCPlayerApi[80];
+            VRCPlayerApi.GetPlayers(players);
+            foreach (var player in players)
+            {
+                if (player == null) continue;
+
+                player.SetVoiceDistanceFar(voiceDistanceFar);
+            }
+
+            if (farDistanceText != null)
+            {
+                farDistanceText.text = string.Format("{0:0.00}", voiceDistanceFar);
+            }
         }
     }
 }

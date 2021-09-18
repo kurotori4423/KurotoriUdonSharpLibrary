@@ -4,27 +4,29 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 using TMPro;
-
-public class PlayerCounter : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    TextMeshPro mesh;
-    void Start()
+    public class PlayerCounter : UdonSharpBehaviour
     {
-        mesh.text = "00";
-    }
+        [SerializeField]
+        TextMeshPro mesh;
+        void Start()
+        {
+            mesh.text = "00";
+        }
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
-    {
-        int num = VRCPlayerApi.GetPlayerCount();
+        public override void OnPlayerJoined(VRCPlayerApi player)
+        {
+            int num = VRCPlayerApi.GetPlayerCount();
 
-        mesh.text = string.Format("{0:D2}", num);
-    }
+            mesh.text = string.Format("{0:D2}", num);
+        }
 
-    public override void OnPlayerLeft(VRCPlayerApi player)
-    {
-        int num = VRCPlayerApi.GetPlayerCount();
+        public override void OnPlayerLeft(VRCPlayerApi player)
+        {
+            int num = VRCPlayerApi.GetPlayerCount();
 
-        mesh.text = string.Format("{0:D2}", num -1);
+            mesh.text = string.Format("{0:D2}", num - 1);
+        }
     }
 }

@@ -3,72 +3,74 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
-public class SimpleToggleLowHighMirror : UdonSharpBehaviour
+namespace Kurotori
 {
-
-    bool hightMirror = false;
-    bool lowMirror = false;
-
-    [SerializeField]
-    Animator mirrorAnimator;
-    [SerializeField]
-    Animator LQButtonAnimator;
-    [SerializeField]
-    Animator HQButtonAnimator;
-
-    void Start()
+    public class SimpleToggleLowHighMirror : UdonSharpBehaviour
     {
 
-    }
+        bool hightMirror = false;
+        bool lowMirror = false;
 
-    private void ChangeState()
-    {
-        mirrorAnimator.SetBool("LQMirror", lowMirror);
-        mirrorAnimator.SetBool("HQMirror", hightMirror);
+        [SerializeField]
+        Animator mirrorAnimator;
+        [SerializeField]
+        Animator LQButtonAnimator;
+        [SerializeField]
+        Animator HQButtonAnimator;
 
-        LQButtonAnimator.SetBool("LQMirror", lowMirror);
-        LQButtonAnimator.SetBool("HQMirror", hightMirror);
-
-        HQButtonAnimator.SetBool("LQMirror", lowMirror);
-        HQButtonAnimator.SetBool("HQMirror", hightMirror);
-    }
-
-    public void HighMirrorToggle()
-    {
-        if(hightMirror)
+        void Start()
         {
-            hightMirror = false;
-        }
-        else
-        {
-            hightMirror = true;
 
-            if (lowMirror)
-            {
-                lowMirror = false;
-            }
         }
 
-        ChangeState();
-    }
-
-    public void LowMirrorToggle()
-    {
-        if(lowMirror)
+        private void ChangeState()
         {
-            lowMirror = false;
+            mirrorAnimator.SetBool("LQMirror", lowMirror);
+            mirrorAnimator.SetBool("HQMirror", hightMirror);
+
+            LQButtonAnimator.SetBool("LQMirror", lowMirror);
+            LQButtonAnimator.SetBool("HQMirror", hightMirror);
+
+            HQButtonAnimator.SetBool("LQMirror", lowMirror);
+            HQButtonAnimator.SetBool("HQMirror", hightMirror);
         }
-        else
-        {
-            lowMirror = true;
 
+        public void HighMirrorToggle()
+        {
             if (hightMirror)
             {
                 hightMirror = false;
             }
+            else
+            {
+                hightMirror = true;
+
+                if (lowMirror)
+                {
+                    lowMirror = false;
+                }
+            }
+
+            ChangeState();
         }
 
-        ChangeState();
+        public void LowMirrorToggle()
+        {
+            if (lowMirror)
+            {
+                lowMirror = false;
+            }
+            else
+            {
+                lowMirror = true;
+
+                if (hightMirror)
+                {
+                    hightMirror = false;
+                }
+            }
+
+            ChangeState();
+        }
     }
 }

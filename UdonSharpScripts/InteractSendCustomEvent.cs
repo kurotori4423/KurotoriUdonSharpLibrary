@@ -3,17 +3,19 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
-public class InteractSendCustomEvent : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    string customEventName;
-    [SerializeField]
-    UdonBehaviour behaviour;
-
-
-    public override void Interact()
+    public class InteractSendCustomEvent : UdonSharpBehaviour
     {
-        behaviour.SendCustomEvent(customEventName);
+        [SerializeField]
+        string customEventName;
+        [SerializeField]
+        UdonBehaviour behaviour;
+
+
+        public override void Interact()
+        {
+            behaviour.SendCustomEvent(customEventName);
+        }
     }
 }

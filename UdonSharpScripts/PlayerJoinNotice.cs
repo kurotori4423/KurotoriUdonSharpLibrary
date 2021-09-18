@@ -4,48 +4,51 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-/// <summary>
-/// プレイヤー入室サウンド
-/// </summary>
-public class PlayerJoinNotice : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    AudioClip joinSound;
-
-    [SerializeField]
-    AudioSource audioSource;
-
-    [SerializeField]
-    float COOL_TIME = 1.0f;
-
-    bool isCoolTime = false;
-    float nowCoolTime;
-
-    void Start()
+    /// <summary>
+    /// プレイヤー入室サウンド
+    /// </summary>
+    public class PlayerJoinNotice : UdonSharpBehaviour
     {
-        nowCoolTime = COOL_TIME;
-    }
+        [SerializeField]
+        AudioClip joinSound;
 
-    private void Update()
-    {
-        if (isCoolTime)
+        [SerializeField]
+        AudioSource audioSource;
+
+        [SerializeField]
+        float COOL_TIME = 1.0f;
+
+        bool isCoolTime = false;
+        float nowCoolTime;
+
+        void Start()
         {
-            nowCoolTime -= Time.deltaTime;
+            nowCoolTime = COOL_TIME;
+        }
 
-            if (nowCoolTime < 0.0f)
+        private void Update()
+        {
+            if (isCoolTime)
             {
-                nowCoolTime = COOL_TIME;
-                isCoolTime = false;
+                nowCoolTime -= Time.deltaTime;
+
+                if (nowCoolTime < 0.0f)
+                {
+                    nowCoolTime = COOL_TIME;
+                    isCoolTime = false;
+                }
             }
         }
-    }
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
-    {
-        if (!isCoolTime)
+        public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            audioSource.PlayOneShot(joinSound);
-            isCoolTime = true;
+            if (!isCoolTime)
+            {
+                audioSource.PlayOneShot(joinSound);
+                isCoolTime = true;
+            }
         }
     }
 }

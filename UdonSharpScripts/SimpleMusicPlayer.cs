@@ -3,71 +3,73 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
-/// <summary>
-/// 同期なしシンプルミュージックプレイヤー
-/// 自動でループ再生する。
-/// </summary>
-public class SimpleMusicPlayer : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    AudioSource audioSource;
-
-    [SerializeField]
-    AudioClip[] clips;
-
-    [SerializeField]
-    bool isPlay = true;
-
-    int playIndex = 0;
-
-    void Start()
+    /// <summary>
+    /// 同期なしシンプルミュージックプレイヤー
+    /// 自動でループ再生する。
+    /// </summary>
+    public class SimpleMusicPlayer : UdonSharpBehaviour
     {
-        if (isPlay)
-        {
-            audioSource.Stop();
-            audioSource.clip = clips[playIndex];
-            audioSource.Play();
-        }
-    }
+        [SerializeField]
+        AudioSource audioSource;
 
-    private void Update()
-    {
-        if (isPlay)
+        [SerializeField]
+        AudioClip[] clips;
+
+        [SerializeField]
+        bool isPlay = true;
+
+        int playIndex = 0;
+
+        void Start()
         {
-            if (!audioSource.isPlaying)
+            if (isPlay)
             {
-                playIndex = (playIndex + 1) % clips.Length;
+                audioSource.Stop();
                 audioSource.clip = clips[playIndex];
                 audioSource.Play();
             }
         }
-        else
+
+        private void Update()
         {
-            if(audioSource.isPlaying)
+            if (isPlay)
             {
-                audioSource.Stop();
+                if (!audioSource.isPlaying)
+                {
+                    playIndex = (playIndex + 1) % clips.Length;
+                    audioSource.clip = clips[playIndex];
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
             }
         }
-    }
 
-    public void Play()
-    {
-        if(!audioSource.isPlaying)
+        public void Play()
         {
-            isPlay = true;
-            audioSource.Stop();
-            audioSource.Play();
+            if (!audioSource.isPlaying)
+            {
+                isPlay = true;
+                audioSource.Stop();
+                audioSource.Play();
+            }
         }
-    }
 
-    public void Stop()
-    {
-        if(audioSource.isPlaying)
+        public void Stop()
         {
-            audioSource.Stop();
-            isPlay = false;
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                isPlay = false;
+            }
         }
-    }
 
+    }
 }

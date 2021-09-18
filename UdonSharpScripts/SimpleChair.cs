@@ -4,14 +4,17 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-/// <summary>
-/// シンプルな椅子用スクリプト
-/// 最初から非アクティブなVRC Chairにつけておくと、アクティブ時に有効にならない問題を回避できる。
-/// </summary>
-public class SimpleChair : UdonSharpBehaviour
+namespace Kurotori
 {
-    public override void Interact()
+    /// <summary>
+    /// シンプルな椅子用スクリプト
+    /// 最初から非アクティブなVRC Chairにつけておくと、アクティブ時に有効にならない問題を回避できる。
+    /// </summary>
+    public class SimpleChair : UdonSharpBehaviour
     {
-        Networking.LocalPlayer.UseAttachedStation();
+        public override void Interact()
+        {
+            Networking.LocalPlayer.UseAttachedStation();
+        }
     }
 }

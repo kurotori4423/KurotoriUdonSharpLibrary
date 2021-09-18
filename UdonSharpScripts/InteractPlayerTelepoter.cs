@@ -3,18 +3,20 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
-public class InteractPlayerTelepoter : UdonSharpBehaviour
+namespace Kurotori
 {
-    public Transform teleportTo;
-
-    public override void Interact()
+    public class InteractPlayerTelepoter : UdonSharpBehaviour
     {
-        var player = Networking.LocalPlayer;
+        public Transform teleportTo;
 
-        if (player != null)
+        public override void Interact()
         {
-            player.TeleportTo(teleportTo.position, teleportTo.rotation);
+            var player = Networking.LocalPlayer;
+
+            if (player != null)
+            {
+                player.TeleportTo(teleportTo.position, teleportTo.rotation);
+            }
         }
     }
 }

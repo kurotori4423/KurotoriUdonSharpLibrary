@@ -5,14 +5,16 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
-
-public class ToggleObjectUGUI : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    Toggle toggleObject;
-
-    void Start()
+    public class ToggleObjectUGUI : UdonSharpBehaviour
     {
-        
+        [SerializeField]
+        Toggle toggleObject;
+
+        void Start()
+        {
+
+        }
     }
 }

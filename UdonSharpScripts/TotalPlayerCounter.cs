@@ -5,24 +5,27 @@ using VRC.SDKBase;
 using VRC.Udon;
 using TMPro;
 
-public class TotalPlayerCounter : UdonSharpBehaviour
+namespace Kurotori
 {
-    [SerializeField]
-    TextMeshPro mesh;
-
-    int count = 0;
-
-    void Start()
+    public class TotalPlayerCounter : UdonSharpBehaviour
     {
-        mesh.text = "0";
-    }
+        [SerializeField]
+        TextMeshPro mesh;
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
-    {
-        if(count < player.playerId)
+        int count = 0;
+
+        void Start()
         {
-            count = player.playerId;
+            mesh.text = "0";
         }
-        mesh.text = count.ToString();
+
+        public override void OnPlayerJoined(VRCPlayerApi player)
+        {
+            if (count < player.playerId)
+            {
+                count = player.playerId;
+            }
+            mesh.text = count.ToString();
+        }
     }
 }
